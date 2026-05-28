@@ -1,0 +1,152 @@
+{
+  "info": {
+    "name": "BITE.co — Exp 2 Seguridad (ASR-SEG-01)",
+    "description": "Experimento 2 del Sprint 4: validación del claim tenant_id (Access Token). Pasos: 1) token Tenant A, 2) acceso legítimo 200, 3) ataque cross-tenant 403 (correr con el Runner 20 iteraciones), 4) verificar AuditLog, 5) acceso legítimo tras ataques 200. Llena primero las variables de la colección (kong_url, auth0_*, tenant_a_user, tenant_a_pass).",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    { "key": "kong_url", "value": "http://CHANGE-ME:8000" },
+    { "key": "auth0_domain", "value": "dev-477qsrq6kvubzbqc.us.auth0.com" },
+    { "key": "auth0_client_id", "value": "" },
+    { "key": "auth0_client_secret", "value": "" },
+    { "key": "auth0_audience", "value": "https://bite.co/api" },
+    { "key": "tenant_a_user", "value": "analyst-acme@example.com" },
+    { "key": "tenant_a_pass", "value": "" },
+    { "key": "tenant_a_slug", "value": "acme-corp" },
+    { "key": "tenant_b_slug", "value": "globex-inc" },
+    { "key": "token_a", "value": "" },
+    { "key": "user_sub", "value": "" },
+    { "key": "attack_since", "value": "" }
+  ],
+  "item": [
+    {
+      "name": "1. Obtener token Tenant A",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test('200 OK', () => pm.response.to.have.status(200));",
+              "const token = pm.response.json().access_token;",
+              "pm.collectionVariables.set('token_a', token);",
+              "try {",
+              "  const part = token.split('.')[1].replace(/-/g,'+').replace(/_/g,'/');",
+              "  const payload = JSON.parse(atob(part));",
+              "  pm.collectionVariables.set('user_sub', payload.sub);",
+              "} catch (e) { console.log('No se pudo decodificar sub:', e); }",
+              "pm.collectionVariables.set('attack_since', new Date().toISOString());",
+              "console.log('token_a y user_sub guardados; attack_since =', pm.collectionVariables.get('attack_since'));"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "url": { "raw": "https://{{auth0_domain}}/oauth/token", "protocol": "https", "host": ["{{auth0_domain}}"], "path": ["oauth", "token"] },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"grant_type\": \"password\",\n  \"username\": \"{{tenant_a_user}}\",\n  \"password\": \"{{tenant_a_pass}}\",\n  \"audience\": \"{{auth0_audience}}\",\n  \"client_id\": \"{{auth0_client_id}}\",\n  \"client_secret\": \"{{auth0_client_secret}}\",\n  \"scope\": \"openid profile email\"\n}"
+        }
+      }
+    },
+    {
+      "name": "2. Acceso legitimo (200)",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test('Acceso legitimo -> 200', () => pm.response.to.have.status(200));"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [{ "key": "Authorization", "value": "Bearer {{token_a}}" }],
+        "url": { "raw": "{{kong_url}}/api/reports/{{tenant_a_slug}}/", "host": ["{{kong_url}}"], "path": ["api", "reports", "{{tenant_a_slug}}", ""] }
+      }
+    },
+    {
+      "name": "3. Ataque cross-tenant (403)",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test('Cross-tenant -> 403', () => pm.response.to.have.status(403));",
+              "// Para el 100% de deteccion: correr esta request con el Collection Runner,",
+              "// 20 iteraciones. Cada iteracion que de 403 cuenta como un ataque detectado."
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [{ "key": "Authorization", "value": "Bearer {{token_a}}" }],
+        "url": { "raw": "{{kong_url}}/api/reports/{{tenant_b_slug}}/", "host": ["{{kong_url}}"], "path": ["api", "reports", "{{tenant_b_slug}}", ""] }
+      }
+    },
+    {
+      "name": "4. Verificar AuditLog",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test('200 OK', () => pm.response.to.have.status(200));",
+              "const data = pm.response.json();",
+              "console.log('Intentos cross-tenant registrados:', data.count);",
+              "pm.test('AuditLog registro los ataques (>=1)', () => pm.expect(data.count).to.be.above(0));",
+              "if (data.entries && data.entries.length) {",
+              "  const e = data.entries[0];",
+              "  console.log('Muestra:', e.timestamp, '|', e.user_sub, '(', e.user_tenant_slug, ') ->', e.method, e.path, '(', e.requested_tenant_slug, ') |', e.outcome);",
+              "}"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{kong_url}}/api/audit/?outcome=unauthorized_tenant&user_sub={{user_sub}}&requested_tenant={{tenant_b_slug}}&since={{attack_since}}",
+          "host": ["{{kong_url}}"],
+          "path": ["api", "audit", ""],
+          "query": [
+            { "key": "outcome", "value": "unauthorized_tenant" },
+            { "key": "user_sub", "value": "{{user_sub}}" },
+            { "key": "requested_tenant", "value": "{{tenant_b_slug}}" },
+            { "key": "since", "value": "{{attack_since}}" }
+          ]
+        }
+      }
+    },
+    {
+      "name": "5. Acceso legitimo tras ataques (200)",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test('Sin falsos positivos: legitimo -> 200', () => pm.response.to.have.status(200));",
+              "// Si esto diera 401/403, significaria que el usuario quedo bloqueado",
+              "// (eso seria SEG-02, que NO aplica en este experimento)."
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [{ "key": "Authorization", "value": "Bearer {{token_a}}" }],
+        "url": { "raw": "{{kong_url}}/api/reports/{{tenant_a_slug}}/", "host": ["{{kong_url}}"], "path": ["api", "reports", "{{tenant_a_slug}}", ""] }
+      }
+    }
+  ]
+}
