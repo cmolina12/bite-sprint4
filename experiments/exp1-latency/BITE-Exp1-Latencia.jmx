@@ -48,14 +48,17 @@
       <hashTree/>
 
       <!-- ============ ESCENARIO 1: BASELINE ============ -->
+      <!-- Carga baja a propósito: el baseline sobre +10M docs NO completa (timeout).
+           No tiene sentido 50 usuarios x 20 loops; con pocos requests se evidencia
+           que la agregación en vivo es inviable. Ajusta usersBaseline/loopsBaseline. -->
       <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="1 - Baseline (sin vista materializada)" enabled="true">
         <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
         <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
           <boolProp name="LoopController.continue_forever">false</boolProp>
-          <stringProp name="LoopController.loops">${LOOPS}</stringProp>
+          <stringProp name="LoopController.loops">${__P(loopsBaseline,3)}</stringProp>
         </elementProp>
-        <stringProp name="ThreadGroup.num_threads">${USERS}</stringProp>
-        <stringProp name="ThreadGroup.ramp_time">10</stringProp>
+        <stringProp name="ThreadGroup.num_threads">${__P(usersBaseline,5)}</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">2</stringProp>
         <boolProp name="ThreadGroup.scheduler">false</boolProp>
       </ThreadGroup>
       <hashTree>

@@ -61,9 +61,17 @@ export class ReportesService {
   async baseline(tenantId: string) {
     const db = await this.mongo.getDb();
     const start = process.hrtime.bigint();
+    // maxTimeMS: corta la agregación si excede el umbral. Sobre +10M docs la
+    // agregación en vivo no completa en tiempo razonable (resultado esperado del
+    // ASR: agregar en vivo es inviable). Sin esto, el request se cuelga indefinido
+    // y JMeter no obtiene una métrica usable.
+    const maxMs = Number(process.env.BASELINE_MAX_MS || 60000);
     const rows = await db
       .collection('costos')
-      .aggregate(ReportesService.groupPipeline(tenantId), { allowDiskUse: true })
+      .aggregate(ReportesService.groupPipeline(tenantId), {
+        allowDiskUse: true,
+        maxTimeMS: maxMs,
+      })
       .toArray();
     const elapsedMs = Number(process.hrtime.bigint() - start) / 1e6;
     return {
