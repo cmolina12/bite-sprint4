@@ -1,4 +1,11 @@
-import { Controller, Get, Param, Query } from '@nestjs/common';
+import {
+  Controller,
+  Get,
+  Param,
+  Query,
+  HttpException,
+  HttpStatus,
+} from '@nestjs/common';
 import { ReportesService } from './reportes.service';
 
 /**
@@ -22,8 +29,33 @@ export class ReportesController {
     @Param('tenant') tenant: string,
     @Query('light') light?: string,
   ) {
-    const result = await this.reportes.baseline(tenant);
-    return light ? this.strip(result) : result;
+    try {
+      const result = await this.reportes.baseline(tenant);
+      return light ? this.strip(result) : result;
+    } catch (err: any) {
+      // El maxTimeMS de la agregación dispara este error cuando el baseline
+      // no completa sobre +10M docs. Es el RESULTADO ESPERADO del ASR-LAT-01:
+      // la agregación en vivo es inviable. Devolvemos 503 con mensaje claro
+      // (en vez de un 500 genérico) para que el experimento/JMeter lo registre
+      // de forma legible.
+      const isTimeout =
+        err?.code === 50 || // MaxTimeMSExpired
+        /time limit|exceeded time/i.test(err?.message || '');
+      if (isTimeout) {
+        throw new HttpException(
+          {
+            mode: 'baseline',
+            tenant,
+            status: 'TIMEOUT',
+            detail:
+              'La agregacion en vivo sobre la coleccion cruda excedio el limite de tiempo. ' +
+              'Confirma el ASR-LAT-01: sin vista materializada, el reporte es inviable.',
+          },
+          HttpStatus.SERVICE_UNAVAILABLE,
+        );
+      }
+      throw err;
+    }
   }
 
   @Get(':tenant/materialized')
