@@ -18,9 +18,9 @@
 # Variables específicas del Experimento 1
 # -----------------------------------------------------------------------------
 variable "mongo_instance_type" {
-  description = "Tipo de EC2 para MongoDB. t2.small (2GB RAM) recomendado para agregar +10M docs; t2.micro puede quedarse corto de memoria."
+  description = "Tipo de EC2 para MongoDB. Con +10M docs en un solo tenant, la agregacion en vivo (baseline) necesita RAM: t2.medium (4GB) es el minimo; si el baseline no termina, subir a t2.large (8GB)."
   type        = string
-  default     = "t2.small"
+  default     = "t2.medium"
 }
 
 variable "mongo_volume_size" {

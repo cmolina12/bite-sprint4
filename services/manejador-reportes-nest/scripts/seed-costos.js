@@ -22,6 +22,11 @@ const TOTAL_DOCS = Number(process.env.TOTAL_DOCS || 10_500_000);
 const BATCH_SIZE = Number(process.env.BATCH_SIZE || 50_000);
 
 const TENANTS = ['acme-corp', 'globex-inc', 'initech', 'umbrella', 'stark-ind'];
+// Si SINGLE_TENANT está seteado, TODOS los docs van a ese tenant.
+// Necesario para que UN reporte agregue +10M registros, como exige el ASR-LAT-01
+// (la agregación del reporte filtra por tenant, así que el volumen de un reporte
+// es el volumen de su tenant).
+const SINGLE_TENANT = process.env.SINGLE_TENANT || null;
 const PROVIDERS = ['aws', 'gcp', 'azure'];
 const SERVICES = {
   aws: ['EC2', 'S3', 'RDS', 'Lambda', 'CloudFront', 'EBS'],
@@ -49,7 +54,7 @@ function genDoc() {
   const service = pick(SERVICES[provider]);
   const date = new Date(START_DATE.getTime() + rint(DAYS_RANGE) * 86400_000);
   return {
-    tenant_id: pick(TENANTS),
+    tenant_id: SINGLE_TENANT || pick(TENANTS),
     provider,
     service,
     region: pick(REGIONS),
