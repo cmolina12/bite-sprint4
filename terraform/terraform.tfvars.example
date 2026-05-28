@@ -16,14 +16,30 @@ db_password = "BiteSprint3Lab"
 
 
 # -----------------------------------------------------------------------------
-# Etapa 1 — Manejador de Reportes (OBLIGATORIO)
+# Etapa 1 — Manejador de Reportes Django (Exp 2 seguridad) (OBLIGATORIO)
 # -----------------------------------------------------------------------------
 
-reports_git_repo_url = "https://github.com/TU_USUARIO/bite-sprint3.git"
+reports_git_repo_url = "https://github.com/TU_USUARIO/bite-sprint4.git"
 reports_git_ref      = "main"
 
 # Genera con: python3 -c "import secrets; print(secrets.token_urlsafe(50))"
 django_secret_key = "GENERAR_CON_secrets.token_urlsafe"
+
+
+# -----------------------------------------------------------------------------
+# Experimento 1 — Latencia: MongoDB + Reportes Nest.js (OBLIGATORIO para Exp 1)
+# -----------------------------------------------------------------------------
+
+# Mismo repo del Sprint 4 (contiene services/manejador-reportes-nest)
+reports_nest_git_repo_url = "https://github.com/TU_USUARIO/bite-sprint4.git"
+reports_nest_git_ref      = "main"
+
+# Opcionales (traen defaults razonables):
+# mongo_instance_type        = "t2.small"   # 2GB RAM para agregar +10M docs
+# mongo_volume_size          = 30           # GB de disco para MongoDB
+# reports_nest_instance_type = "t2.micro"
+# mongo_db_name              = "bite"
+
 
 
 # -----------------------------------------------------------------------------

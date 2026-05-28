@@ -24,71 +24,70 @@ materializada pre-agregada.
 
 ## Paso a paso
 
-### 1. Levantar MongoDB (EC2 con Docker)
+### 1. MongoDB y el servicio Reportes ya están desplegados por Terraform
+
+Tras `terraform apply` (FASE 1 del RUNBOOK), ya tienes corriendo:
+- EC2 con MongoDB en Docker (`mongo_public_ip` / `mongo_private_ip`)
+- EC2 con el microservicio Reportes-Nest en Docker (`reports_nest_url`)
+
+No tienes que levantarlos a mano. Los pasos de abajo (seed, materialize, JMeter)
+se corren contra esa infra ya desplegada. Si prefieres montarlo manualmente
+(sin Terraform), las instrucciones manuales quedan al final como referencia.
+
+### 2. Sembrar la colección cruda (+10M docs)
+
+El seed se corre **desde dentro de la red de AWS** (la EC2 de Mongo solo acepta
+27017 desde Reportes-Nest, no desde tu IP). Lo más simple es correrlo en la
+propia EC2 de MongoDB vía SSH:
 
 ```bash
-docker run -d --name mongo -p 27017:27017 -v mongodata:/data/db mongo:7
-```
+ssh -i <vockey.pem> ubuntu@<mongo_public_ip>     # ver output mongo_ssh
 
-> Disco: pide a la EC2 un volumen de ~30 GB. Los 10M+ docs ocupan varios GB y
-> el `$merge` necesita espacio temporal.
-
-### 2. Desplegar el microservicio Reportes
-
-```bash
-cd services/manejador-reportes-nest
+# dentro de la EC2 de Mongo:
+sudo apt-get update -y && sudo apt-get install -y nodejs npm git
+git clone <tu-repo-sprint4> bite && cd bite/services/manejador-reportes-nest
 npm install
-npm run build
-export MONGO_URI="mongodb://<mongo-host>:27017"
-export MONGO_DB="bite"
-npm start          # escucha en :3000 (o detrás de Kong en :8000)
-```
-
-(o vía Docker: `docker build -t bite-reportes . && docker run -p 3000:3000 -e MONGO_URI=... bite-reportes`)
-
-### 3. Sembrar la colección cruda
-
-```bash
-cd services/manejador-reportes-nest
-MONGO_URI="mongodb://<mongo-host>:27017" node scripts/seed-costos.js
+MONGO_URI="mongodb://localhost:27017" node scripts/seed-costos.js
 # tarda varios minutos; inserta 10.5M docs por defecto
 ```
 
-### 4. Prueba BASELINE (sin vista materializada)
+### 3. Prueba BASELINE (sin vista materializada)
 
-Abrir `BITE-Exp1-Latencia.jmx` en JMeter, **deshabilitar** el Thread Group
-"2 - Materializado", y correr solo "1 - Baseline". O por consola:
+Usa la URL del output `exp1_baseline_url`. Abrir `BITE-Exp1-Latencia.jmx` en
+JMeter, **deshabilitar** el Thread Group "2 - Materializado", y correr solo
+"1 - Baseline". O por consola (apuntando directo al Nest en :3000):
 
 ```bash
 jmeter -n -t BITE-Exp1-Latencia.jmx \
-  -Jhost=<elastic-ip> -Jport=8000 -Jtenant=acme-corp -Jusers=50 -Jloops=20 \
+  -Jhost=<reports_nest_public_ip> -Jport=3000 -Jtenant=acme-corp -Jusers=50 -Jloops=20 \
   -l baseline.jtl -e -o reporte-baseline/
 ```
 
 Anota el **P95** del Aggregate Report (esperado > 2000 ms).
 
-### 5. Construir la vista materializada (una sola vez)
+### 4. Construir la vista materializada (una sola vez)
 
 ```bash
-cd services/manejador-reportes-nest
-MONGO_URI="mongodb://<mongo-host>:27017" node scripts/materialize.js
+# en la EC2 de Mongo (o donde tengas acceso a 27017):
+cd bite/services/manejador-reportes-nest
+MONGO_URI="mongodb://localhost:27017" node scripts/materialize.js
 ```
 
-### 6. Prueba MATERIALIZADO
+### 5. Prueba MATERIALIZADO
 
 Mismo plan, ahora solo el Thread Group "2 - Materializado":
 
 ```bash
 jmeter -n -t BITE-Exp1-Latencia.jmx \
-  -Jhost=<elastic-ip> -Jport=8000 -Jtenant=acme-corp -Jusers=50 -Jloops=20 \
+  -Jhost=<reports_nest_public_ip> -Jport=3000 -Jtenant=acme-corp -Jusers=50 -Jloops=20 \
   -l materialized.jtl -e -o reporte-materializado/
 ```
 
 Anota el **P95** (esperado ≤ 500 ms).
 
-### 7. Repetir 3 veces y comparar
+### 6. Repetir 3 veces y comparar
 
-Repetir pasos 4 y 6 tres veces. La variación entre corridas debe ser < 10%.
+Repetir pasos 3 y 5 tres veces. La variación entre corridas debe ser < 10%.
 Contrastar los P95 de ambos escenarios → con vista materializada debe cumplir
 el umbral de 500 ms.
 

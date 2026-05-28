@@ -110,3 +110,42 @@ output "rabbitmq_management_url" {
   description = "URL de la UI de gestión de RabbitMQ (Etapa 4). user: bite / pass: bitepass"
   value       = "http://${aws_eip.kong.public_ip}:15672"
 }
+
+# =============================================================================
+# Outputs del Experimento 1 (ASR-LAT-01) — Latencia
+# =============================================================================
+
+output "mongo_private_ip" {
+  description = "IP privada de la EC2 de MongoDB (la usa Reportes-Nest internamente)."
+  value       = aws_instance.mongo.private_ip
+}
+
+output "mongo_public_ip" {
+  description = "IP pública de la EC2 de MongoDB (para SSH y correr seed/materialize)."
+  value       = aws_instance.mongo.public_ip
+}
+
+output "mongo_ssh" {
+  description = "Comando SSH a la EC2 de MongoDB."
+  value       = "ssh -i <vockey.pem> ubuntu@${aws_instance.mongo.public_ip}"
+}
+
+output "reports_nest_public_ip" {
+  description = "IP pública de la EC2 del microservicio Reportes (Nest.js)."
+  value       = aws_instance.reports_nest.public_ip
+}
+
+output "reports_nest_url" {
+  description = "URL directa del microservicio Reportes (Nest.js) para JMeter / pruebas."
+  value       = "http://${aws_instance.reports_nest.public_ip}:3000"
+}
+
+output "exp1_baseline_url" {
+  description = "Endpoint baseline (agregacion en vivo) — escenario lento."
+  value       = "http://${aws_instance.reports_nest.public_ip}:3000/api/reports/acme-corp/baseline"
+}
+
+output "exp1_materialized_url" {
+  description = "Endpoint materializado (vista pre-agregada) — escenario rapido."
+  value       = "http://${aws_instance.reports_nest.public_ip}:3000/api/reports/acme-corp/materialized"
+}

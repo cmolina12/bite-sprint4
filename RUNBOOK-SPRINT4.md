@@ -44,25 +44,37 @@ Si esto pasa, el código de seguridad está bien y el resto es solo desplegarlo.
 
 ---
 
-## FASE 1 — Desplegar la infraestructura en AWS
+## FASE 1 — Desplegar TODA la infraestructura en AWS
 
-> Igual que en el Sprint 3 — el Terraform y el bootstrap ya existen. Desde
+> Un solo `terraform apply` levanta todo: la infra del Sprint 3 (Django, Kong,
+> RDS, Redis) **y** la del Exp 1 (EC2 MongoDB + EC2 Reportes-Nest). Desde
 > CloudShell o tu máquina con las credenciales de AWS Academy:
 
 ```bash
 cd terraform
 cp terraform.tfvars.example terraform.tfvars
-# editar terraform.tfvars con tus valores (ver más abajo)
+# editar terraform.tfvars (ver más abajo)
 terraform init
+terraform validate     # confirma que no hay errores antes de aplicar
 terraform apply
 ```
 
-Variables clave en `terraform.tfvars` (revisar el `.example`):
-- credenciales/labRole de AWS Academy
-- `auth0_domain`, `auth0_audience`
-- (para Exp 1, cuando lo agreguemos: tamaño de disco de la EC2 de MongoDB → 30 GB)
+Variables clave en `terraform.tfvars`:
+- `my_ip_cidr` → tu IP pública (`curl -s ifconfig.me`) en formato `x.x.x.x/32`
+- `db_password` → password de RDS PostgreSQL (Exp 2 / Django)
+- `django_secret_key` → genera con `python3 -c "import secrets; print(secrets.token_urlsafe(50))"`
+- `reports_git_repo_url` → tu repo del Sprint 4 (servicio Django)
+- `reports_nest_git_repo_url` → tu repo del Sprint 4 (servicio Nest.js — mismo repo)
+- `auth0_*` → cuando configures Auth0 (FASE 2)
 
-Al terminar, `terraform output` te da las IPs (Kong/Elastic IP).
+Al terminar, `terraform output` te da todo lo que necesitas:
+- `kong_proxy_url` → entrada del sistema (Exp 2)
+- `reports_nest_url`, `exp1_baseline_url`, `exp1_materialized_url` → endpoints del Exp 1
+- `mongo_public_ip`, `mongo_ssh` → para correr el seed y la materialización
+
+> **Importante (Exp 1):** la EC2 de MongoDB usa `t2.small` (2 GB RAM) y disco de
+> 30 GB por defecto, porque agregar +10M docs con `t2.micro` (1 GB) puede quedarse
+> sin memoria. Ajustable en `terraform.tfvars`.
 
 ---
 

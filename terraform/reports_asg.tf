@@ -56,42 +56,10 @@ variable "django_secret_key" {
   sensitive   = true
 }
 
-# -----------------------------------------------------------------------------
-# Variables de Auth0 (Etapa 3 — SEG-01 y SEG-02)
-# Pueden quedar vacías hasta que configures Auth0. Si están vacías, el
-# middleware de tenant entra en "modo permisivo" (deja pasar todo).
-# -----------------------------------------------------------------------------
-variable "auth0_domain" {
-  description = "Domain de tu tenant Auth0. Ej: dev-xxxxx.us.auth0.com"
-  type        = string
-  default     = ""
-}
-
-variable "auth0_audience" {
-  description = "Audience (Identifier) de la API en Auth0. Ej: https://bite.co/api"
-  type        = string
-  default     = "https://bite.co/api"
-}
-
-variable "auth0_tenant_claim" {
-  description = "Claim completo del JWT donde Django busca el tenant_id. Ej: https://bite.co/tenant_id"
-  type        = string
-  default     = "https://bite.co/tenant_id"
-}
-
-variable "auth0_mgmt_client_id" {
-  description = "Client ID de la M2M Application para Management API (bloqueo de usuarios)."
-  type        = string
-  default     = ""
-  sensitive   = true
-}
-
-variable "auth0_mgmt_client_secret" {
-  description = "Client Secret de la M2M Application para Management API."
-  type        = string
-  default     = ""
-  sensitive   = true
-}
+# NOTA: las variables de Auth0 (auth0_domain, auth0_audience, auth0_tenant_claim,
+# auth0_mgmt_client_id, auth0_mgmt_client_secret) están declaradas en variables.tf.
+# Antes estaban duplicadas aquí, lo que hacía fallar `terraform validate` con
+# "Duplicate variable declaration". Se eliminaron de este archivo.
 
 # -----------------------------------------------------------------------------
 # User-data script (cloud-init) que se ejecutará en cada EC2 al arrancar
