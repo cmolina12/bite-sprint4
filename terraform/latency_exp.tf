@@ -211,6 +211,7 @@ locals {
       -e MONGO_URI="mongodb://${aws_instance.mongo.private_ip}:27017" \
       -e MONGO_DB="${var.mongo_db_name}" \
       -e PORT=3000 \
+      -e BASELINE_MAX_MS=30000 \
       bite-reportes-nest
   USERDATA
 }

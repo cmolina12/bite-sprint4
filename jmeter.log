@@ -1,0 +1,233 @@
+2026-05-28 23:38:10,567 INFO o.a.j.u.JMeterUtils: Setting Locale to en_EN
+2026-05-28 23:38:10,597 INFO o.a.j.JMeter: Loading user properties from: /opt/homebrew/Cellar/jmeter/5.6.3/libexec/bin/user.properties
+2026-05-28 23:38:10,598 INFO o.a.j.JMeter: Loading system properties from: /opt/homebrew/Cellar/jmeter/5.6.3/libexec/bin/system.properties
+2026-05-28 23:38:10,601 INFO o.a.j.JMeter: Copyright (c) 1998-2024 The Apache Software Foundation
+2026-05-28 23:38:10,601 INFO o.a.j.JMeter: Version 5.6.3
+2026-05-28 23:38:10,602 INFO o.a.j.JMeter: java.version=21.0.10
+2026-05-28 23:38:10,602 INFO o.a.j.JMeter: java.vm.name=OpenJDK 64-Bit Server VM
+2026-05-28 23:38:10,602 INFO o.a.j.JMeter: os.name=Mac OS X
+2026-05-28 23:38:10,602 INFO o.a.j.JMeter: os.arch=aarch64
+2026-05-28 23:38:10,602 INFO o.a.j.JMeter: os.version=26.5
+2026-05-28 23:38:10,602 INFO o.a.j.JMeter: file.encoding=UTF-8
+2026-05-28 23:38:10,602 INFO o.a.j.JMeter: java.awt.headless=null
+2026-05-28 23:38:10,602 INFO o.a.j.JMeter: Max memory     =1073741824
+2026-05-28 23:38:10,602 INFO o.a.j.JMeter: Available Processors =8
+2026-05-28 23:38:10,609 INFO o.a.j.JMeter: Default Locale=English (EN)
+2026-05-28 23:38:10,609 INFO o.a.j.JMeter: JMeter  Locale=English (EN)
+2026-05-28 23:38:10,609 INFO o.a.j.JMeter: JMeterHome=/opt/homebrew/Cellar/jmeter/5.6.3/libexec
+2026-05-28 23:38:10,609 INFO o.a.j.JMeter: user.dir  =/Users/macbookairm1/Documents/Universidad/Octavo Semestre/Arquisoft/Sprint 4/bite-sprint4-main
+2026-05-28 23:38:10,609 INFO o.a.j.JMeter: PWD       =/Users/macbookairm1/Documents/Universidad/Octavo Semestre/Arquisoft/Sprint 4/bite-sprint4-main
+2026-05-28 23:38:10,612 INFO o.a.j.JMeter: IP: 127.0.0.1 Name: Macbooks-MacBook-Air.local FullName: localhost
+2026-05-28 23:38:10,620 INFO o.a.j.JMeter: Loaded icon properties from org/apache/jmeter/images/icon.properties
+2026-05-28 23:38:11,830 INFO o.a.j.JMeterGuiLauncher: Setting LAF to: com.github.weisj.darklaf.DarkLaf:com.github.weisj.darklaf.theme.DarculaTheme
+2026-05-28 23:38:14,248 INFO o.a.j.r.ClassFinder: Will scan jar /opt/homebrew/Cellar/jmeter/5.6.3/libexec/lib/ext/jmeter-plugins-manager-1.11.jar with filter ExtendsClassFilter [parents=[interface org.apache.jmeter.gui.action.Command], inner=false, contains=null, notContains=null]. Consider exposing JMeter plugins via META-INF/services, and add JMeter-Skip-Class-Scanning=true manifest attribute so JMeter can skip classfile scanning
+2026-05-28 23:38:14,341 INFO o.a.j.r.ClassFinder: Will scan jar /opt/homebrew/Cellar/jmeter/5.6.3/libexec/lib/ext/jmeter-plugins-manager-1.11.jar with filter ExtendsClassFilter [parents=[interface org.apache.jmeter.gui.plugin.MenuCreator], inner=false, contains=null, notContains=null]. Consider exposing JMeter plugins via META-INF/services, and add JMeter-Skip-Class-Scanning=true manifest attribute so JMeter can skip classfile scanning
+2026-05-28 23:38:14,425 INFO o.j.r.JARSourceHTTP: Requesting https://jmeter-plugins.org/repo/?installID=mac_os_x-dee7f009ff8b05c71569071a4033e020-gui
+2026-05-28 23:38:15,891 INFO o.j.r.PluginManager: Plugins Status: [jpgc-plugins-manager=1.11, jmeter-core=5.6.3, jmeter-ftp=5.6.3, jmeter-http=5.6.3, jmeter-jdbc=5.6.3, jmeter-jms=5.6.3, jmeter-junit=5.6.3, jmeter-java=5.6.3, jmeter-ldap=5.6.3, jmeter-mail=5.6.3, jmeter-mongodb=5.6.3, jmeter-native=5.6.3, jmeter-tcp=5.6.3, jmeter-components=5.6.3]
+2026-05-28 23:38:15,892 INFO o.j.r.PluginManagerMenuItem: Plugins Manager has upgrades: [jpgc-plugins-manager]
+2026-05-28 23:47:04,656 INFO o.a.j.s.FileServer: Default base='/Users/macbookairm1/Documents/Universidad/Octavo Semestre/Arquisoft/Sprint 4/bite-sprint4-main'
+2026-05-28 23:47:04,660 INFO o.a.j.g.a.Load: Loading file: /Users/macbookairm1/Documents/Universidad/Octavo Semestre/Arquisoft/Sprint 4/bite-sprint4-main/experiments/exp1-latency/BITE-Exp1-Latencia.jmx
+2026-05-28 23:47:04,661 INFO o.a.j.s.FileServer: Set new base='/Users/macbookairm1/Documents/Universidad/Octavo Semestre/Arquisoft/Sprint 4/bite-sprint4-main/experiments/exp1-latency'
+2026-05-28 23:47:04,769 INFO o.a.j.s.SaveService: Testplan (JMX) version: 2.2. Testlog (JTL) version: 2.2
+2026-05-28 23:47:04,773 INFO o.a.j.s.SaveService: Using SaveService properties version 5.0
+2026-05-28 23:47:04,774 INFO o.a.j.s.SaveService: Using SaveService properties file encoding UTF-8
+2026-05-28 23:47:04,775 INFO o.a.j.s.SaveService: Loading file: /Users/macbookairm1/Documents/Universidad/Octavo Semestre/Arquisoft/Sprint 4/bite-sprint4-main/experiments/exp1-latency/BITE-Exp1-Latencia.jmx
+2026-05-28 23:47:04,824 INFO o.a.j.p.h.s.HTTPSamplerBase: Parser for text/html is org.apache.jmeter.protocol.http.parser.LagartoBasedHtmlParser
+2026-05-28 23:47:04,825 INFO o.a.j.p.h.s.HTTPSamplerBase: Parser for application/xhtml+xml is org.apache.jmeter.protocol.http.parser.LagartoBasedHtmlParser
+2026-05-28 23:47:04,825 INFO o.a.j.p.h.s.HTTPSamplerBase: Parser for application/xml is org.apache.jmeter.protocol.http.parser.LagartoBasedHtmlParser
+2026-05-28 23:47:04,825 INFO o.a.j.p.h.s.HTTPSamplerBase: Parser for text/xml is org.apache.jmeter.protocol.http.parser.LagartoBasedHtmlParser
+2026-05-28 23:47:04,825 INFO o.a.j.p.h.s.HTTPSamplerBase: Parser for text/vnd.wap.wml is org.apache.jmeter.protocol.http.parser.RegexpHTMLParser
+2026-05-28 23:47:04,825 INFO o.a.j.p.h.s.HTTPSamplerBase: Parser for text/css is org.apache.jmeter.protocol.http.parser.CssParser
+2026-05-28 23:47:04,976 INFO o.a.j.s.FileServer: Set new base='/Users/macbookairm1/Documents/Universidad/Octavo Semestre/Arquisoft/Sprint 4/bite-sprint4-main/experiments/exp1-latency'
+2026-05-28 23:54:13,989 INFO o.a.j.e.StandardJMeterEngine: Running the test!
+2026-05-28 23:54:13,990 INFO o.a.j.s.SampleEvent: List of sample_variables: []
+2026-05-28 23:54:13,990 INFO o.a.j.s.SampleEvent: List of sample_variables: []
+2026-05-28 23:54:13,991 INFO o.a.j.e.u.CompoundVariable: Note: Function class names must contain the string: '.functions.'
+2026-05-28 23:54:13,991 INFO o.a.j.e.u.CompoundVariable: Note: Function class names must not contain the string: '.gui.'
+2026-05-28 23:54:14,033 INFO o.a.j.r.ClassFinder: Will scan jar /opt/homebrew/Cellar/jmeter/5.6.3/libexec/lib/ext/jmeter-plugins-manager-1.11.jar with filter ExtendsClassFilter [parents=[interface org.apache.jmeter.functions.Function], inner=false, contains=null, notContains=null]. Consider exposing JMeter plugins via META-INF/services, and add JMeter-Skip-Class-Scanning=true manifest attribute so JMeter can skip classfile scanning
+2026-05-28 23:54:14,041 INFO o.a.j.g.u.JMeterMenuBar: setRunning(true, *local*)
+2026-05-28 23:54:14,080 INFO o.a.j.e.StandardJMeterEngine: Starting ThreadGroup: 1 : 1 - Baseline (sin vista materializada)
+2026-05-28 23:54:14,080 INFO o.a.j.e.StandardJMeterEngine: Starting 5 threads for group 1 - Baseline (sin vista materializada).
+2026-05-28 23:54:14,080 INFO o.a.j.e.StandardJMeterEngine: Thread will continue on error
+2026-05-28 23:54:14,081 INFO o.a.j.t.ThreadGroup: Starting thread group... number=1 threads=5 ramp-up=2 delayedStart=false
+2026-05-28 23:54:14,082 INFO o.a.j.t.JMeterThread: Thread started: 1 - Baseline (sin vista materializada) 1-1
+2026-05-28 23:54:14,083 INFO o.a.j.t.ThreadGroup: Started thread group number 1
+2026-05-28 23:54:14,083 INFO o.a.j.e.StandardJMeterEngine: Waiting for thread group: 1 - Baseline (sin vista materializada) to finish before starting next group
+2026-05-28 23:54:14,089 INFO o.a.j.p.h.s.HTTPHCAbstractImpl: Local host = Macbooks-MacBook-Air.local
+2026-05-28 23:54:14,093 INFO o.a.j.p.h.s.HTTPHC4Impl: HTTP request retry count = 0
+2026-05-28 23:54:14,094 INFO o.a.j.s.SampleResult: Note: Sample TimeStamps are START times
+2026-05-28 23:54:14,094 INFO o.a.j.s.SampleResult: sampleresult.default.encoding is set to UTF-8
+2026-05-28 23:54:14,094 INFO o.a.j.s.SampleResult: sampleresult.useNanoTime=true
+2026-05-28 23:54:14,094 INFO o.a.j.s.SampleResult: sampleresult.nanoThreadSleep=5000
+2026-05-28 23:54:14,487 INFO o.a.j.t.JMeterThread: Thread started: 1 - Baseline (sin vista materializada) 1-2
+2026-05-28 23:54:14,882 INFO o.a.j.t.JMeterThread: Thread started: 1 - Baseline (sin vista materializada) 1-3
+2026-05-28 23:54:15,284 INFO o.a.j.t.JMeterThread: Thread started: 1 - Baseline (sin vista materializada) 1-4
+2026-05-28 23:54:15,683 INFO o.a.j.t.JMeterThread: Thread started: 1 - Baseline (sin vista materializada) 1-5
+2026-05-28 23:55:44,846 INFO o.a.j.t.JMeterThread: Thread is done: 1 - Baseline (sin vista materializada) 1-1
+2026-05-28 23:55:44,848 INFO o.a.j.t.JMeterThread: Thread finished: 1 - Baseline (sin vista materializada) 1-1
+2026-05-28 23:55:45,079 INFO o.a.j.t.JMeterThread: Thread is done: 1 - Baseline (sin vista materializada) 1-2
+2026-05-28 23:55:45,079 INFO o.a.j.t.JMeterThread: Thread finished: 1 - Baseline (sin vista materializada) 1-2
+2026-05-28 23:55:45,508 INFO o.a.j.t.JMeterThread: Thread is done: 1 - Baseline (sin vista materializada) 1-3
+2026-05-28 23:55:45,508 INFO o.a.j.t.JMeterThread: Thread finished: 1 - Baseline (sin vista materializada) 1-3
+2026-05-28 23:55:46,345 INFO o.a.j.t.JMeterThread: Thread is done: 1 - Baseline (sin vista materializada) 1-5
+2026-05-28 23:55:46,345 INFO o.a.j.t.JMeterThread: Thread finished: 1 - Baseline (sin vista materializada) 1-5
+2026-05-28 23:55:47,093 INFO o.a.j.t.JMeterThread: Thread is done: 1 - Baseline (sin vista materializada) 1-4
+2026-05-28 23:55:47,093 INFO o.a.j.t.JMeterThread: Thread finished: 1 - Baseline (sin vista materializada) 1-4
+2026-05-28 23:55:47,094 INFO o.a.j.e.StandardJMeterEngine: Starting ThreadGroup: 2 : 2 - Materializado (vista pre-agregada)
+2026-05-28 23:55:47,094 INFO o.a.j.e.StandardJMeterEngine: Starting 50 threads for group 2 - Materializado (vista pre-agregada).
+2026-05-28 23:55:47,094 INFO o.a.j.e.StandardJMeterEngine: Thread will continue on error
+2026-05-28 23:55:47,094 INFO o.a.j.t.ThreadGroup: Starting thread group... number=2 threads=50 ramp-up=10 delayedStart=false
+2026-05-28 23:55:47,097 INFO o.a.j.t.JMeterThread: Thread started: 2 - Materializado (vista pre-agregada) 2-1
+2026-05-28 23:55:47,111 INFO o.a.j.t.ThreadGroup: Started thread group number 2
+2026-05-28 23:55:47,111 INFO o.a.j.e.StandardJMeterEngine: All thread groups have been started
+2026-05-28 23:55:47,299 INFO o.a.j.t.JMeterThread: Thread started: 2 - Materializado (vista pre-agregada) 2-2
+2026-05-28 23:55:47,501 INFO o.a.j.t.JMeterThread: Thread started: 2 - Materializado (vista pre-agregada) 2-3
+2026-05-28 23:55:47,699 INFO o.a.j.t.JMeterThread: Thread started: 2 - Materializado (vista pre-agregada) 2-4
+2026-05-28 23:55:47,901 INFO o.a.j.t.JMeterThread: Thread started: 2 - Materializado (vista pre-agregada) 2-5
+2026-05-28 23:55:48,098 INFO o.a.j.t.JMeterThread: Thread started: 2 - Materializado (vista pre-agregada) 2-6
+2026-05-28 23:55:48,299 INFO o.a.j.t.JMeterThread: Thread started: 2 - Materializado (vista pre-agregada) 2-7
+2026-05-28 23:55:48,500 INFO o.a.j.t.JMeterThread: Thread started: 2 - Materializado (vista pre-agregada) 2-8
+2026-05-28 23:55:48,701 INFO o.a.j.t.JMeterThread: Thread started: 2 - Materializado (vista pre-agregada) 2-9
+2026-05-28 23:55:48,901 INFO o.a.j.t.JMeterThread: Thread started: 2 - Materializado (vista pre-agregada) 2-10
+2026-05-28 23:55:49,098 INFO o.a.j.t.JMeterThread: Thread started: 2 - Materializado (vista pre-agregada) 2-11
+2026-05-28 23:55:49,300 INFO o.a.j.t.JMeterThread: Thread started: 2 - Materializado (vista pre-agregada) 2-12
+2026-05-28 23:55:49,500 INFO o.a.j.t.JMeterThread: Thread started: 2 - Materializado (vista pre-agregada) 2-13
+2026-05-28 23:55:49,700 INFO o.a.j.t.JMeterThread: Thread started: 2 - Materializado (vista pre-agregada) 2-14
+2026-05-28 23:55:49,900 INFO o.a.j.t.JMeterThread: Thread started: 2 - Materializado (vista pre-agregada) 2-15
+2026-05-28 23:55:50,101 INFO o.a.j.t.JMeterThread: Thread started: 2 - Materializado (vista pre-agregada) 2-16
+2026-05-28 23:55:50,300 INFO o.a.j.t.JMeterThread: Thread started: 2 - Materializado (vista pre-agregada) 2-17
+2026-05-28 23:55:50,500 INFO o.a.j.t.JMeterThread: Thread started: 2 - Materializado (vista pre-agregada) 2-18
+2026-05-28 23:55:50,699 INFO o.a.j.t.JMeterThread: Thread started: 2 - Materializado (vista pre-agregada) 2-19
+2026-05-28 23:55:50,896 INFO o.a.j.t.JMeterThread: Thread started: 2 - Materializado (vista pre-agregada) 2-20
+2026-05-28 23:55:51,098 INFO o.a.j.t.JMeterThread: Thread started: 2 - Materializado (vista pre-agregada) 2-21
+2026-05-28 23:55:51,167 INFO o.a.j.t.JMeterThread: Thread is done: 2 - Materializado (vista pre-agregada) 2-1
+2026-05-28 23:55:51,167 INFO o.a.j.t.JMeterThread: Thread finished: 2 - Materializado (vista pre-agregada) 2-1
+2026-05-28 23:55:51,301 INFO o.a.j.t.JMeterThread: Thread started: 2 - Materializado (vista pre-agregada) 2-22
+2026-05-28 23:55:51,475 INFO o.a.j.t.JMeterThread: Thread is done: 2 - Materializado (vista pre-agregada) 2-2
+2026-05-28 23:55:51,475 INFO o.a.j.t.JMeterThread: Thread finished: 2 - Materializado (vista pre-agregada) 2-2
+2026-05-28 23:55:51,501 INFO o.a.j.t.JMeterThread: Thread started: 2 - Materializado (vista pre-agregada) 2-23
+2026-05-28 23:55:51,699 INFO o.a.j.t.JMeterThread: Thread started: 2 - Materializado (vista pre-agregada) 2-24
+2026-05-28 23:55:51,800 INFO o.a.j.t.JMeterThread: Thread is done: 2 - Materializado (vista pre-agregada) 2-4
+2026-05-28 23:55:51,801 INFO o.a.j.t.JMeterThread: Thread finished: 2 - Materializado (vista pre-agregada) 2-4
+2026-05-28 23:55:51,800 INFO o.a.j.t.JMeterThread: Thread is done: 2 - Materializado (vista pre-agregada) 2-3
+2026-05-28 23:55:51,802 INFO o.a.j.t.JMeterThread: Thread finished: 2 - Materializado (vista pre-agregada) 2-3
+2026-05-28 23:55:51,900 INFO o.a.j.t.JMeterThread: Thread started: 2 - Materializado (vista pre-agregada) 2-25
+2026-05-28 23:55:52,062 INFO o.a.j.t.JMeterThread: Thread is done: 2 - Materializado (vista pre-agregada) 2-5
+2026-05-28 23:55:52,062 INFO o.a.j.t.JMeterThread: Thread finished: 2 - Materializado (vista pre-agregada) 2-5
+2026-05-28 23:55:52,100 INFO o.a.j.t.JMeterThread: Thread started: 2 - Materializado (vista pre-agregada) 2-26
+2026-05-28 23:55:52,175 INFO o.a.j.t.JMeterThread: Thread is done: 2 - Materializado (vista pre-agregada) 2-6
+2026-05-28 23:55:52,176 INFO o.a.j.t.JMeterThread: Thread finished: 2 - Materializado (vista pre-agregada) 2-6
+2026-05-28 23:55:52,301 INFO o.a.j.t.JMeterThread: Thread started: 2 - Materializado (vista pre-agregada) 2-27
+2026-05-28 23:55:52,328 INFO o.a.j.t.JMeterThread: Thread is done: 2 - Materializado (vista pre-agregada) 2-7
+2026-05-28 23:55:52,329 INFO o.a.j.t.JMeterThread: Thread finished: 2 - Materializado (vista pre-agregada) 2-7
+2026-05-28 23:55:52,500 INFO o.a.j.t.JMeterThread: Thread started: 2 - Materializado (vista pre-agregada) 2-28
+2026-05-28 23:55:52,671 INFO o.a.j.t.JMeterThread: Thread is done: 2 - Materializado (vista pre-agregada) 2-8
+2026-05-28 23:55:52,671 INFO o.a.j.t.JMeterThread: Thread finished: 2 - Materializado (vista pre-agregada) 2-8
+2026-05-28 23:55:52,698 INFO o.a.j.t.JMeterThread: Thread started: 2 - Materializado (vista pre-agregada) 2-29
+2026-05-28 23:55:52,854 INFO o.a.j.t.JMeterThread: Thread is done: 2 - Materializado (vista pre-agregada) 2-9
+2026-05-28 23:55:52,854 INFO o.a.j.t.JMeterThread: Thread finished: 2 - Materializado (vista pre-agregada) 2-9
+2026-05-28 23:55:52,900 INFO o.a.j.t.JMeterThread: Thread started: 2 - Materializado (vista pre-agregada) 2-30
+2026-05-28 23:55:53,013 INFO o.a.j.t.JMeterThread: Thread is done: 2 - Materializado (vista pre-agregada) 2-10
+2026-05-28 23:55:53,013 INFO o.a.j.t.JMeterThread: Thread finished: 2 - Materializado (vista pre-agregada) 2-10
+2026-05-28 23:55:53,088 INFO o.a.j.t.JMeterThread: Thread is done: 2 - Materializado (vista pre-agregada) 2-11
+2026-05-28 23:55:53,088 INFO o.a.j.t.JMeterThread: Thread finished: 2 - Materializado (vista pre-agregada) 2-11
+2026-05-28 23:55:53,101 INFO o.a.j.t.JMeterThread: Thread started: 2 - Materializado (vista pre-agregada) 2-31
+2026-05-28 23:55:53,296 INFO o.a.j.t.JMeterThread: Thread started: 2 - Materializado (vista pre-agregada) 2-32
+2026-05-28 23:55:53,376 INFO o.a.j.t.JMeterThread: Thread is done: 2 - Materializado (vista pre-agregada) 2-12
+2026-05-28 23:55:53,376 INFO o.a.j.t.JMeterThread: Thread finished: 2 - Materializado (vista pre-agregada) 2-12
+2026-05-28 23:55:53,501 INFO o.a.j.t.JMeterThread: Thread started: 2 - Materializado (vista pre-agregada) 2-33
+2026-05-28 23:55:53,647 INFO o.a.j.t.JMeterThread: Thread is done: 2 - Materializado (vista pre-agregada) 2-13
+2026-05-28 23:55:53,647 INFO o.a.j.t.JMeterThread: Thread finished: 2 - Materializado (vista pre-agregada) 2-13
+2026-05-28 23:55:53,702 INFO o.a.j.t.JMeterThread: Thread started: 2 - Materializado (vista pre-agregada) 2-34
+2026-05-28 23:55:53,899 INFO o.a.j.t.JMeterThread: Thread started: 2 - Materializado (vista pre-agregada) 2-35
+2026-05-28 23:55:53,900 INFO o.a.j.t.JMeterThread: Thread is done: 2 - Materializado (vista pre-agregada) 2-14
+2026-05-28 23:55:53,904 INFO o.a.j.t.JMeterThread: Thread finished: 2 - Materializado (vista pre-agregada) 2-14
+2026-05-28 23:55:54,095 INFO o.a.j.t.JMeterThread: Thread started: 2 - Materializado (vista pre-agregada) 2-36
+2026-05-28 23:55:54,192 INFO o.a.j.t.JMeterThread: Thread is done: 2 - Materializado (vista pre-agregada) 2-15
+2026-05-28 23:55:54,192 INFO o.a.j.t.JMeterThread: Thread finished: 2 - Materializado (vista pre-agregada) 2-15
+2026-05-28 23:55:54,300 INFO o.a.j.t.JMeterThread: Thread started: 2 - Materializado (vista pre-agregada) 2-37
+2026-05-28 23:55:54,423 INFO o.a.j.t.JMeterThread: Thread is done: 2 - Materializado (vista pre-agregada) 2-16
+2026-05-28 23:55:54,423 INFO o.a.j.t.JMeterThread: Thread finished: 2 - Materializado (vista pre-agregada) 2-16
+2026-05-28 23:55:54,424 INFO o.a.j.t.JMeterThread: Thread is done: 2 - Materializado (vista pre-agregada) 2-17
+2026-05-28 23:55:54,425 INFO o.a.j.t.JMeterThread: Thread finished: 2 - Materializado (vista pre-agregada) 2-17
+2026-05-28 23:55:54,500 INFO o.a.j.t.JMeterThread: Thread started: 2 - Materializado (vista pre-agregada) 2-38
+2026-05-28 23:55:54,678 INFO o.a.j.t.JMeterThread: Thread is done: 2 - Materializado (vista pre-agregada) 2-18
+2026-05-28 23:55:54,679 INFO o.a.j.t.JMeterThread: Thread finished: 2 - Materializado (vista pre-agregada) 2-18
+2026-05-28 23:55:54,700 INFO o.a.j.t.JMeterThread: Thread started: 2 - Materializado (vista pre-agregada) 2-39
+2026-05-28 23:55:54,854 INFO o.a.j.t.JMeterThread: Thread is done: 2 - Materializado (vista pre-agregada) 2-20
+2026-05-28 23:55:54,855 INFO o.a.j.t.JMeterThread: Thread finished: 2 - Materializado (vista pre-agregada) 2-20
+2026-05-28 23:55:54,901 INFO o.a.j.t.JMeterThread: Thread started: 2 - Materializado (vista pre-agregada) 2-40
+2026-05-28 23:55:54,975 INFO o.a.j.t.JMeterThread: Thread is done: 2 - Materializado (vista pre-agregada) 2-19
+2026-05-28 23:55:54,976 INFO o.a.j.t.JMeterThread: Thread finished: 2 - Materializado (vista pre-agregada) 2-19
+2026-05-28 23:55:55,098 INFO o.a.j.t.JMeterThread: Thread started: 2 - Materializado (vista pre-agregada) 2-41
+2026-05-28 23:55:55,195 INFO o.a.j.t.JMeterThread: Thread is done: 2 - Materializado (vista pre-agregada) 2-21
+2026-05-28 23:55:55,195 INFO o.a.j.t.JMeterThread: Thread finished: 2 - Materializado (vista pre-agregada) 2-21
+2026-05-28 23:55:55,299 INFO o.a.j.t.JMeterThread: Thread started: 2 - Materializado (vista pre-agregada) 2-42
+2026-05-28 23:55:55,497 INFO o.a.j.t.JMeterThread: Thread started: 2 - Materializado (vista pre-agregada) 2-43
+2026-05-28 23:55:55,572 INFO o.a.j.t.JMeterThread: Thread is done: 2 - Materializado (vista pre-agregada) 2-22
+2026-05-28 23:55:55,572 INFO o.a.j.t.JMeterThread: Thread finished: 2 - Materializado (vista pre-agregada) 2-22
+2026-05-28 23:55:55,681 INFO o.a.j.t.JMeterThread: Thread is done: 2 - Materializado (vista pre-agregada) 2-23
+2026-05-28 23:55:55,681 INFO o.a.j.t.JMeterThread: Thread finished: 2 - Materializado (vista pre-agregada) 2-23
+2026-05-28 23:55:55,697 INFO o.a.j.t.JMeterThread: Thread started: 2 - Materializado (vista pre-agregada) 2-44
+2026-05-28 23:55:55,898 INFO o.a.j.t.JMeterThread: Thread started: 2 - Materializado (vista pre-agregada) 2-45
+2026-05-28 23:55:55,997 INFO o.a.j.t.JMeterThread: Thread is done: 2 - Materializado (vista pre-agregada) 2-24
+2026-05-28 23:55:55,997 INFO o.a.j.t.JMeterThread: Thread finished: 2 - Materializado (vista pre-agregada) 2-24
+2026-05-28 23:55:56,095 INFO o.a.j.t.JMeterThread: Thread started: 2 - Materializado (vista pre-agregada) 2-46
+2026-05-28 23:55:56,201 INFO o.a.j.t.JMeterThread: Thread is done: 2 - Materializado (vista pre-agregada) 2-25
+2026-05-28 23:55:56,201 INFO o.a.j.t.JMeterThread: Thread finished: 2 - Materializado (vista pre-agregada) 2-25
+2026-05-28 23:55:56,299 INFO o.a.j.t.JMeterThread: Thread is done: 2 - Materializado (vista pre-agregada) 2-26
+2026-05-28 23:55:56,300 INFO o.a.j.t.JMeterThread: Thread finished: 2 - Materializado (vista pre-agregada) 2-26
+2026-05-28 23:55:56,300 INFO o.a.j.t.JMeterThread: Thread started: 2 - Materializado (vista pre-agregada) 2-47
+2026-05-28 23:55:56,500 INFO o.a.j.t.JMeterThread: Thread started: 2 - Materializado (vista pre-agregada) 2-48
+2026-05-28 23:55:56,522 INFO o.a.j.t.JMeterThread: Thread is done: 2 - Materializado (vista pre-agregada) 2-27
+2026-05-28 23:55:56,522 INFO o.a.j.t.JMeterThread: Thread finished: 2 - Materializado (vista pre-agregada) 2-27
+2026-05-28 23:55:56,623 INFO o.a.j.t.JMeterThread: Thread is done: 2 - Materializado (vista pre-agregada) 2-28
+2026-05-28 23:55:56,623 INFO o.a.j.t.JMeterThread: Thread finished: 2 - Materializado (vista pre-agregada) 2-28
+2026-05-28 23:55:56,699 INFO o.a.j.t.JMeterThread: Thread started: 2 - Materializado (vista pre-agregada) 2-49
+2026-05-28 23:55:56,817 INFO o.a.j.t.JMeterThread: Thread is done: 2 - Materializado (vista pre-agregada) 2-29
+2026-05-28 23:55:56,817 INFO o.a.j.t.JMeterThread: Thread finished: 2 - Materializado (vista pre-agregada) 2-29
+2026-05-28 23:55:56,900 INFO o.a.j.t.JMeterThread: Thread started: 2 - Materializado (vista pre-agregada) 2-50
+2026-05-28 23:55:56,954 INFO o.a.j.t.JMeterThread: Thread is done: 2 - Materializado (vista pre-agregada) 2-30
+2026-05-28 23:55:56,955 INFO o.a.j.t.JMeterThread: Thread finished: 2 - Materializado (vista pre-agregada) 2-30
+2026-05-28 23:55:57,257 INFO o.a.j.t.JMeterThread: Thread is done: 2 - Materializado (vista pre-agregada) 2-31
+2026-05-28 23:55:57,258 INFO o.a.j.t.JMeterThread: Thread finished: 2 - Materializado (vista pre-agregada) 2-31
+2026-05-28 23:55:57,406 INFO o.a.j.t.JMeterThread: Thread is done: 2 - Materializado (vista pre-agregada) 2-32
+2026-05-28 23:55:57,406 INFO o.a.j.t.JMeterThread: Thread finished: 2 - Materializado (vista pre-agregada) 2-32
+2026-05-28 23:55:57,835 INFO o.a.j.t.JMeterThread: Thread is done: 2 - Materializado (vista pre-agregada) 2-33
+2026-05-28 23:55:57,835 INFO o.a.j.t.JMeterThread: Thread finished: 2 - Materializado (vista pre-agregada) 2-33
+2026-05-28 23:55:57,849 INFO o.a.j.t.JMeterThread: Thread is done: 2 - Materializado (vista pre-agregada) 2-34
+2026-05-28 23:55:57,849 INFO o.a.j.t.JMeterThread: Thread finished: 2 - Materializado (vista pre-agregada) 2-34
+2026-05-28 23:55:57,996 INFO o.a.j.t.JMeterThread: Thread is done: 2 - Materializado (vista pre-agregada) 2-35
+2026-05-28 23:55:57,996 INFO o.a.j.t.JMeterThread: Thread finished: 2 - Materializado (vista pre-agregada) 2-35
+2026-05-28 23:55:58,269 INFO o.a.j.t.JMeterThread: Thread is done: 2 - Materializado (vista pre-agregada) 2-36
+2026-05-28 23:55:58,269 INFO o.a.j.t.JMeterThread: Thread finished: 2 - Materializado (vista pre-agregada) 2-36
+2026-05-28 23:55:58,409 INFO o.a.j.t.JMeterThread: Thread is done: 2 - Materializado (vista pre-agregada) 2-37
+2026-05-28 23:55:58,410 INFO o.a.j.t.JMeterThread: Thread finished: 2 - Materializado (vista pre-agregada) 2-37
+2026-05-28 23:55:58,620 INFO o.a.j.t.JMeterThread: Thread is done: 2 - Materializado (vista pre-agregada) 2-38
+2026-05-28 23:55:58,621 INFO o.a.j.t.JMeterThread: Thread finished: 2 - Materializado (vista pre-agregada) 2-38
+2026-05-28 23:55:58,813 INFO o.a.j.t.JMeterThread: Thread is done: 2 - Materializado (vista pre-agregada) 2-39
+2026-05-28 23:55:58,813 INFO o.a.j.t.JMeterThread: Thread finished: 2 - Materializado (vista pre-agregada) 2-39
+2026-05-28 23:55:58,883 INFO o.a.j.t.JMeterThread: Thread is done: 2 - Materializado (vista pre-agregada) 2-40
+2026-05-28 23:55:58,884 INFO o.a.j.t.JMeterThread: Thread finished: 2 - Materializado (vista pre-agregada) 2-40
+2026-05-28 23:55:59,144 INFO o.a.j.t.JMeterThread: Thread is done: 2 - Materializado (vista pre-agregada) 2-41
+2026-05-28 23:55:59,144 INFO o.a.j.t.JMeterThread: Thread finished: 2 - Materializado (vista pre-agregada) 2-41
+2026-05-28 23:55:59,419 INFO o.a.j.t.JMeterThread: Thread is done: 2 - Materializado (vista pre-agregada) 2-42
+2026-05-28 23:55:59,420 INFO o.a.j.t.JMeterThread: Thread finished: 2 - Materializado (vista pre-agregada) 2-42
+2026-05-28 23:55:59,488 INFO o.a.j.t.JMeterThread: Thread is done: 2 - Materializado (vista pre-agregada) 2-43
+2026-05-28 23:55:59,488 INFO o.a.j.t.JMeterThread: Thread finished: 2 - Materializado (vista pre-agregada) 2-43
+2026-05-28 23:55:59,670 INFO o.a.j.t.JMeterThread: Thread is done: 2 - Materializado (vista pre-agregada) 2-44
+2026-05-28 23:55:59,672 INFO o.a.j.t.JMeterThread: Thread finished: 2 - Materializado (vista pre-agregada) 2-44
+2026-05-28 23:56:00,011 INFO o.a.j.t.JMeterThread: Thread is done: 2 - Materializado (vista pre-agregada) 2-45
+2026-05-28 23:56:00,012 INFO o.a.j.t.JMeterThread: Thread finished: 2 - Materializado (vista pre-agregada) 2-45
+2026-05-28 23:56:00,048 INFO o.a.j.t.JMeterThread: Thread is done: 2 - Materializado (vista pre-agregada) 2-46
+2026-05-28 23:56:00,049 INFO o.a.j.t.JMeterThread: Thread finished: 2 - Materializado (vista pre-agregada) 2-46
+2026-05-28 23:56:00,275 INFO o.a.j.t.JMeterThread: Thread is done: 2 - Materializado (vista pre-agregada) 2-48
+2026-05-28 23:56:00,276 INFO o.a.j.t.JMeterThread: Thread finished: 2 - Materializado (vista pre-agregada) 2-48
+2026-05-28 23:56:00,367 INFO o.a.j.t.JMeterThread: Thread is done: 2 - Materializado (vista pre-agregada) 2-47
+2026-05-28 23:56:00,368 INFO o.a.j.t.JMeterThread: Thread finished: 2 - Materializado (vista pre-agregada) 2-47
+2026-05-28 23:56:00,887 INFO o.a.j.t.JMeterThread: Thread is done: 2 - Materializado (vista pre-agregada) 2-49
+2026-05-28 23:56:00,887 INFO o.a.j.t.JMeterThread: Thread finished: 2 - Materializado (vista pre-agregada) 2-49
+2026-05-28 23:56:01,060 INFO o.a.j.t.JMeterThread: Thread is done: 2 - Materializado (vista pre-agregada) 2-50
+2026-05-28 23:56:01,060 INFO o.a.j.t.JMeterThread: Thread finished: 2 - Materializado (vista pre-agregada) 2-50
+2026-05-28 23:56:01,061 INFO o.a.j.e.StandardJMeterEngine: Notifying test listeners of end of test
+2026-05-28 23:56:01,062 INFO o.a.j.g.u.JMeterMenuBar: setRunning(false, *local*)
